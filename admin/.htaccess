@@ -1,0 +1,5 @@
+AuthName "Patate"
+AuthGroupFile /dev/null
+AuthType basic
+AuthUserFile /path/to/.htpasswd
+require valid-user

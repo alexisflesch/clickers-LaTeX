@@ -1,0 +1,46 @@
+---------------------------- SQL ---------------------------------
+
+Each $user has his own SQL table named clickers_$user with two columns :
+- reponse : an integer corresponding to a possible answer
+- votes : the number of votes for the corresponding answer
+
+A main table named clickers contains the ids of the users. It has two columns :
+- name : the name of a $user
+- voteid : the id he/she chose for his poll
+
+
+
+---------------------------- List of files ------------------------
+
+/admin/
+       - .htaccess
+       - index.php
+       - timer.php : a page where you can show/hide results and show a count-down clock
+       - results.php : a page where you can see the results of the current poll
+       /css/
+            - style.css
+       /tex/
+            ./a folder where users upload tex files (automatically renamed clickers_$user.tex)
+       /js/
+            - clock.js : javascript stuff for the timer
+            - main.js : takes care of highlighting current poll and making the list of questions clickable
+            - reload.js : everything else (checking for new results every other second, creating a new css every time the results change, ...)
+       /php/
+            - main.php : file with every useful function. All the other files have self-explanatory names and are accessed through javascript
+
+            
+/vote/
+      - .htaccess
+      - index.php
+      - vote.php : once an id has been selected, user can vote
+      - out.php : leaving the poll (possibly with an error message if it was closed)
+      /css/
+           - minimal.css : responsive-design minimal style file
+      /js/
+           - main.js : to make the list clickable
+      /questions/
+           - question_clickers_$user : minimal html file with question of $user
+      /php/
+           - main.php : main file with useful functions
+           - clickAnswer.php : file to be called by javascript to register a vote
+      
