@@ -3,14 +3,15 @@ Ever wanted LaTeX-compatible clickers system? This is a simple PHP/mySQL script 
 
 # How does it work once everything is set-up ?
 You can use the admin page to upload a text file to your website. This file should contain environments "clickers" that look like this :
-\begin{clickers}
-    Some question
-    \begin{itemize}
-       - One answer
-       - Another answer
-       - $\LaTeX$ code if you want
-    \end{itemize}
-\end{clickers}
+
+    \begin{clickers}
+        Some question
+        \begin{itemize}
+            \item One answer
+            \item Another answer
+            \item $\LaTeX$ code if you want
+        \end{itemize}
+    \end{clickers}
 
 The PHP script will automatically fetch all the clickers in your text file and let you select the one you want to work with. Feel free to take a look at the "screenshots" folder in which you will find :
 - phone.png : a screenshot of what your students will see
