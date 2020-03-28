@@ -14,7 +14,7 @@
 
   function connectSQL()
   {
-    $con = mysqli_connect("please","set","this","up");
+    $con = mysqli_connect("mysql51-103.perso","alexisflscore","XjN7ARbv4j6Y","alexisflscore");
     if (mysqli_connect_errno()){
         return(json_encode("Failed to connect to MySQL: " . mysqli_connect_error()));
     }
