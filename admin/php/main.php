@@ -42,11 +42,11 @@
             $content = $content . "    " . fgets($f);
         }
         fclose($f);
-        $clickers = explode("\begin{clickers}",$content);
+        $clickers = explode("\\begin{clickers}",$content);
         $nbQuestions = count($clickers);
         $questions = array();
         foreach (range(1,$nbQuestions-1) as $i){
-            $bla = explode("\begin{itemize}", $clickers[$i]);
+            $bla = explode("\\begin{itemize}", $clickers[$i]);
             $bla = $bla[0];
             $bla = stripFirstLine($bla);//Removing first line in case of a label
             $questions[] = $bla;
@@ -178,15 +178,15 @@
         $content = $content . "    " . fgets($f);
     }
     fclose($f);
-    $clickers = explode("\end{clickers}",$content);
+    $clickers = explode("\\end{clickers}",$content);
     $clicker = $clickers[$num];
-    $clicker = explode("\begin{clickers}", $clicker);
+    $clicker = explode("\\begin{clickers}", $clicker);
     $clicker = $clicker[1];
     $clicker = stripFirstLine($clicker); //On enlève la première ligne pour virer le label éventuel
-    $clicker = explode("\begin{itemize}", $clicker);
+    $clicker = explode("\\begin{itemize}", $clicker);
     $question = $clicker[0];
-    $reponses = str_replace("\end{itemize}", "", $clicker[1]);
-    $reponses = explode("\item", $reponses);
+    $reponses = str_replace("\\end{itemize}", "", $clicker[1]);
+    $reponses = explode("\\item", $reponses);
     unset($reponses[0]);
     $reponses = array_values($reponses);
     return array($question, $reponses);
